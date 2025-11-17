@@ -1,6 +1,3 @@
-touch README.md
-New-Item -Name "README.md" -ItemType "file"
-
 🛡️ AI Destekli Siber Tehdit İstihbaratı Dashboardu
 
 Bu proje, internetten Açık Kaynak Tehdit İstihbaratı (OSINT) verilerini toplar, basit Makine Öğrenimi (ML) teknikleriyle analiz eder ve sonuçları interaktif bir Streamlit Dashboardu aracılığıyla görselleştirir. Kurumların potansiyel siber saldırı göstergelerini (IoC) önceliklendirmesini ve hızla tepki vermesini amaçlayan bir mezuniyet projesidir.
@@ -125,5 +122,6 @@ requirements.txt
 Python bağımlılık listesi.
 
 🤝 Katkıda Bulunma
+
 
 Bu proje açık kaynaklı bir mezuniyet projesidir. Geri bildirimleriniz ve katkılarınız memnuniyetle karşılanır. Lütfen bir Pull Request göndermekten veya bir Issue açmaktan çekinmeyin.
