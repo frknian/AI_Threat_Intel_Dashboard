@@ -1,0 +1,65 @@
+[
+    {
+        "ioc_type": "IP_Address",
+        "value": "104.244.42.129",
+        "source": "AbuseIPDB",
+        "timestamp": "2025-10-21T15:20:17.917957",
+        "confidence_score": 0.0,
+        "tags": [
+            "ip_abuse"
+        ],
+        "extra_data": {
+            "report_count": 0,
+            "country": "US",
+            "isp": "Twitter Inc."
+        }
+    },
+    {
+        "ioc_type": "IP_Address",
+        "value": "185.239.242.112",
+        "source": "AbuseIPDB",
+        "timestamp": "2025-10-21T15:20:19.441282",
+        "confidence_score": 0.0,
+        "tags": [
+            "ip_abuse"
+        ],
+        "extra_data": {
+            "report_count": 0,
+            "country": "NZ",
+            "isp": "MOD Mission Critical LLC"
+        }
+    },
+    {
+        "ioc_type": "URL",
+        "value": "http://testphp.vulnweb.com/",
+        "source": "URLScan.io",
+        "timestamp": "2025-10-21T15:20:35.599683",
+        "confidence_score": 0.0,
+        "tags": [
+            "url_scan",
+            "url_analysis"
+        ],
+        "extra_data": {
+            "main_ip": "44.228.249.3",
+            "country": "US",
+            "page_status": null,
+            "domains_contacted": [
+                "testphp.vulnweb.com"
+            ]
+        }
+    },
+    {
+        "ioc_type": "IP_Address",
+        "value": "44.228.249.3",
+        "source": "URLScan.io_Extraction",
+        "timestamp": "2025-10-21T15:20:35.599716",
+        "confidence_score": 0.0,
+        "tags": [
+            "ip_extraction",
+            "related_to_url_scan"
+        ],
+        "extra_data": {
+            "parent_url": "http://testphp.vulnweb.com/"
+        }
+    }
+]
