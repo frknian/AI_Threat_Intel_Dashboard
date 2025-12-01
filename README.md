@@ -1,6 +1,3 @@
-touch README.md
-New-Item -Name "README.md" -ItemType "file"
-
 🛡️ AI Destekli Siber Tehdit İstihbaratı Dashboardu
 
 Bu proje, internetten Açık Kaynak Tehdit İstihbaratı (OSINT) verilerini toplar, basit Makine Öğrenimi (ML) teknikleriyle analiz eder ve sonuçları interaktif bir Streamlit Dashboardu aracılığıyla görselleştirir. Kurumların potansiyel siber saldırı göstergelerini (IoC) önceliklendirmesini ve hızla tepki vermesini amaçlayan bir mezuniyet projesidir.
@@ -21,29 +18,23 @@ Güvenli Altyapı: Veri depolama ve sorgulama için güvenliği aktif olan Elast
 
 Bu proje üç ana katmandan oluşmaktadır:
 
-Katman
-
-Araçlar / Kütüphaneler
-
-Açıklama
-
 Veri Katmanı (Persistence)
 
-Elasticsearch 9.x, elasticsearch
+Araçlar: Elasticsearch 9.x, elasticsearch
 
-Yüksek hacimli IoC verilerini depolama ve hızlı sorgulama.
+Açıklama: Yüksek hacimli IoC verilerini depolama ve hızlı sorgulama.
 
 Analiz Katmanı (Backend)
 
-Python (3.x), pandas, scikit-learn
+Araçlar: Python (3.x), pandas, scikit-learn
 
-Veri işleme, özellik mühendisliği ve ML (Isolation Forest) analizi.
+Açıklama: Veri işleme, özellik mühendisliği ve ML (Isolation Forest) analizi.
 
 Sunum Katmanı (Frontend)
 
-Streamlit, plotly, streamlit-folium
+Araçlar: Streamlit, plotly, streamlit-folium
 
-Interaktif, görselleştirilmiş dashboard arayüzü (Kibana'ya alternatif).
+Açıklama: Interaktif, görselleştirilmiş dashboard arayüzü (Kibana'ya alternatif).
 
 🚀 Başlangıç Kılavuzu
 
@@ -51,7 +42,7 @@ Projeyi yerel makinenizde (veya bir sunucuda Docker ile) çalıştırmak için a
 
 1. Ortam Kurulumu
 
-Elasticsearch Kurulumu: Elasticsearch 9.x versiyonunu indirin ve Windows Servisi olarak kurup başlatın (elasticsearch-service.bat install ve start). Servisin çalıştığından emin olun.
+Elasticsearch Kurulumu: Elasticsearch 9.x versiyonunu indirin ve Windows Servisi olarak kurup başlatın.
 
 API Anahtarları: AbuseIPDB ve URLScan.io adreslerinden ücretsiz API anahtarlarınızı alın.
 
@@ -59,70 +50,36 @@ Sanal Ortam: Projenin kök dizininde bir Python Sanal Ortamı (.venv) oluşturun
 
 Bağımlılıklar: Gerekli tüm Python kütüphanelerini kurun:
 
-pip install -r requirements.txt
+pip install elasticsearch pandas scikit-learn numpy streamlit streamlit-folium plotly requests matplotlib
 
-
-(Gereksinimler dosyasını oluşturmak için: pip freeze > requirements.txt)
 
 2. Yapılandırma
 
-Tüm Python dosyalarının (threat_data_collector.py, db_uploader.py, ai_analyzer.py, final_dashboard.py) başındaki YAPILANDIRMA bölümünü güncelleyin:
-
-ABUSEIPDB_API_KEY: Kendi anahtarınız.
-
-URLSCAN_API_KEY: Kendi anahtarınız.
-
-ELASTIC_PASSWORD: Elasticsearch'ü ilk başlattığınızda otomatik oluşturulan (veya sıfırladığınız) şifre.
+Tüm Python dosyalarının (örneğin ai_analyzer.py) başındaki yapılandırma bloklarını kendi anahtarlarınız ve şifrenizle güncelleyin.
 
 3. Çalıştırma Sırası
 
-Proje, verinin akış sırasına göre çalıştırılmalıdır:
+Proje, verinin akış sırasına göre art arda çalıştırılmalıdır:
 
-Veri Toplama: Ham veriyi API'lardan çeker ve JSON dosyasına kaydeder.
+Veri Toplama: python threat_data_collector.py
 
-python threat_data_collector.py
+Veri Yükleme: python db_uploader.py
 
+AI Analizi & Skorlama: python ai_analyzer.py
 
-Veri Yükleme: Veriyi Elasticsearch'e yükler.
-
-python db_uploader.py
-
-
-AI Analizi ve Skorlama: Veriyi çeker, ML analizi yapar ve skorları Elasticsearch'e geri yazar. (Dashboard'un çalışması için bu adım KRİTİKTİR.)
-
-python ai_analyzer.py
-
-
-Dashboard'u Başlatma: Streamlit uygulamasını tarayıcınızda açar.
-
-streamlit run final_dashboard.py
-
+Dashboard'u Başlatma: streamlit run final_dashboard.py
 
 🛠️ Modül Dosyaları
 
-Dosya
+final_dashboard.py: Ana web uygulaması ve görselleştirme mantığı.
 
-Açıklama
+ai_analyzer.py: Isolation Forest modelini uygulayan ve final_threat_score'u hesaplayan çekirdek analiz motoru.
 
-final_dashboard.py
+db_uploader.py: Yerel JSON dosyasını Elasticsearch'e indeksleme aracı.
 
-Ana web uygulaması ve görselleştirme mantığı.
+threat_data_collector.py: API isteklerini yöneten ve ham veriyi normalleştiren betik.
 
-ai_analyzer.py
-
-Isolation Forest modelini uygulayan ve final_threat_score'u hesaplayan çekirdek analiz motoru.
-
-db_uploader.py
-
-Yerel JSON dosyasını Elasticsearch'e indeksleme aracı.
-
-threat_data_collector.py
-
-API isteklerini yöneten ve ham veriyi normalleştiren betik.
-
-requirements.txt
-
-Python bağımlılık listesi.
+requirements.txt: Python bağımlılık listesi.
 
 🤝 Katkıda Bulunma
 
